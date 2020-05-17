@@ -10,13 +10,24 @@ import ReactDOM from 'react-dom';
 // -Need to determine the current month
 // -Need to change text and styling based on location + month
 
-const App = () => {
-  window.navigator.geolocation.getCurrentPosition(
-    (position) => console.log(position),
-    (error) => console.log(error)
-  );
-  return <div>Hi there!</div>;
-};
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // we don't know yet so default the value as null
+    this.state = { lat: null };
+  }
+
+  // React says we have to define render!!
+  render() {
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => console.log(position),
+      (error) => console.log(error)
+    );
+
+    return <div>Latitude: </div>;
+  }
+}
 
 // SeasonDisplay will show different text/icons based on props
 
