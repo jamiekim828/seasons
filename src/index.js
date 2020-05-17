@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// App : has code to determine location + month
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// App Challenges
+// -Need to get the users physical location
+// -Need to determine the current month
+// -Need to change text and styling based on location + month
+
+const App = () => {
+  return <div>Hi there!</div>;
+};
+
+// SeasonDisplay will show different text/icons based on props
+
+ReactDOM.render(<App />, document.querySelector('#root'));
