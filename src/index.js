@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SeasonDisplay from './SeasonDisplay';
 
 // App : has code to determine location + month
 
@@ -11,25 +12,21 @@ import ReactDOM from 'react-dom';
 // -Need to change text and styling based on location + month
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    // state
-    // this is the only time we do direct assignment
-    // to this.state
-    // we don't know yet so default the value as null
-    this.state = { lat: null, errorMessage: '' };
+  //   // state
+  //   // this is the only time we do direct assignment
+  //   // to this.state
+  //   // we don't know yet so default the value as null
 
-    // setState
-    // window.navigator.geolocation.getCurrentPosition(
-    //   (GeolocationPosition) => {
-    //     this.setState({ lat: GeolocationPosition.coords.latitude });
-    //   },
-    //   (error) => {
-    //     this.setState({ errorMessage: error.message });
-    //   }
-    // );
-  }
+  //   this.state = { lat: null, errorMessage: '' };
+
+  // }
+
+  //remove constructor and refactoring
+  //this is easier to read
+  state = { lat: null, errorMessage: '' };
 
   componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
@@ -49,7 +46,8 @@ class App extends React.Component {
     }
 
     if (!this.state.errorMessage && this.state.lat) {
-      return <div>Latitude: {this.state.lat}</div>;
+      // instead of : return <div>Latitude: {this.state.lat}</div>;
+      return <SeasonDisplay lat={this.state.lat} />;
     }
 
     // really no need to put another if statement here
