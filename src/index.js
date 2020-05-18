@@ -21,13 +21,21 @@ class App extends React.Component {
     this.state = { lat: null, errorMessage: '' };
 
     // setState
+    // window.navigator.geolocation.getCurrentPosition(
+    //   (GeolocationPosition) => {
+    //     this.setState({ lat: GeolocationPosition.coords.latitude });
+    //   },
+    //   (error) => {
+    //     this.setState({ errorMessage: error.message });
+    //   }
+    // );
+  }
+
+  componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
-      (GeolocationPosition) => {
-        this.setState({ lat: GeolocationPosition.coords.latitude });
-      },
-      (error) => {
-        this.setState({ errorMessage: error.message });
-      }
+      (GeolocationPosition) =>
+        this.setState({ lat: GeolocationPosition.coords.latitude }),
+      (error) => this.setState({ errorMessage: error.message })
     );
   }
 
