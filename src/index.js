@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 // App : has code to determine location + month
 
@@ -53,7 +54,7 @@ class App extends React.Component {
     // really no need to put another if statement here
     // checked two ifs above
     // and any other case just return "Loading!"
-    return <div>Loading!</div>;
+    return <Spinner />;
   }
 }
 
