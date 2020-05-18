@@ -33,13 +33,21 @@ class App extends React.Component {
 
   // React says we have to define render!!
   render() {
-    return (
-      <div>
-        Latitude: {this.state.lat}
-        <br />
-        Error: {this.state.errorMessage}
-      </div>
-    );
+    // 1. have latitude , no errorMessage -> show latitude
+    // 2. no latitude , have errorMessage -> show error
+    // 3. no latitude , no errorMessage -> show "loading"
+    if (this.state.errorMessage && !this.state.lat) {
+      return <div>Error: {this.state.errorMessage}</div>;
+    }
+
+    if (!this.state.errorMessage && this.state.lat) {
+      return <div>Latitude: {this.state.lat}</div>;
+    }
+
+    // really no need to put another if statement here
+    // checked two ifs above
+    // and any other case just return "Loading!"
+    return <div>Loading!</div>;
   }
 }
 
