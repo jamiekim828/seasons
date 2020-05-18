@@ -54,7 +54,7 @@ class App extends React.Component {
     // really no need to put another if statement here
     // checked two ifs above
     // and any other case just return "Loading!"
-    return <Spinner />;
+    return <Spinner message='Please accept location request' />;
   }
 }
 
